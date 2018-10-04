@@ -9,8 +9,8 @@ import {Task} from '../../models/task';
   styleUrls: ['./tasks.component.scss']
 })
 export class TasksComponent implements OnInit, OnDestroy {
-  tasks: Task[];
-  filteredTasks: Task[];
+  tasks;
+  filteredTasks;
   subscription: Subscription;
 
   constructor(private taskService: TaskService) { }
@@ -20,8 +20,6 @@ export class TasksComponent implements OnInit, OnDestroy {
       .subscribe(tasks => {
         this.tasks = this.filteredTasks = tasks;
       });
-
-
   }
 
   filterTasks(query: string) {

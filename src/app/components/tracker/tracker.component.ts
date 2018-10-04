@@ -61,9 +61,9 @@ export class TrackerComponent implements OnChanges {
     if(this.task) {
       this.totalSeconds = this.task.duration;
 
-      const durationHours = String(Math.floor((this.totalSeconds / 3600)));
-      const durationMinutes = String(Math.floor(((this.totalSeconds % 3600) / 60)));
-      const durationSeconds = String(((this.totalSeconds % 3600) % 60));
+      const durationHours = Math.floor((this.totalSeconds / 3600));
+      const durationMinutes = Math.floor(((this.totalSeconds % 3600) / 60));
+      const durationSeconds = (this.totalSeconds % 3600) % 60;
 
       this.hours = (durationHours < 10 ? '0' : '') + durationHours;
       this.minutes = (durationMinutes < 10 ? '0' : '') + durationMinutes;

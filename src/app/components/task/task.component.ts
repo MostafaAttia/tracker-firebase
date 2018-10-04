@@ -10,7 +10,7 @@ import {Task} from '../../models/task';
   styleUrls: ['./task.component.scss']
 })
 export class TaskComponent implements OnInit, OnChanges {
-  task: Task = {
+  task = {
     title: '',
     description: '',
     duration: 0,
