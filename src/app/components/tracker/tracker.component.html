@@ -1,0 +1,35 @@
+<div class="clock">
+  <div class="numbers">
+    <p [textContent]="hours"></p>
+  </div>
+
+  <div class="colon">
+    <p>:</p>
+  </div>
+
+  <div class="numbers">
+    <p [textContent]="minutes"></p>
+  </div>
+
+  <div class="colon">
+    <p>:</p>
+  </div>
+
+  <div class="numbers">
+    <p [textContent]="seconds"></p>
+  </div>
+
+  <div class="controls">
+    <button (click)="start()" [hidden]="isStarted"  class="btn btn-sm btn-success" title="start">
+      <i class="fas fa-play-circle"></i>
+    </button>
+    <button (click)="onPause()" [hidden]="isPaused || !isStarted"  class="btn btn-sm btn-info" title="pause">
+      <i class="fas fa-pause-circle"></i>
+    </button>
+    <button (click)="onResume()" [hidden]="!isPaused"  class="btn btn-sm btn-info"  title="resume">
+      <i class="fas fa-play-circle"></i>
+    </button>
+  </div>
+</div>
+
+

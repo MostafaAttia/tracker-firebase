@@ -1,0 +1,20 @@
+<div class="text-center">
+  <div class="tasks-list">
+    <h4>Tasks</h4>
+    <input #query
+           (keyup)="filterTasks(query.value)"
+           type="text" class="form-control tasks-search-box" placeholder="Search...">
+    <div class="list-group" *ngFor="let task of filteredTasks  | paginate: { itemsPerPage: 8, currentPage: p }">
+      <a [routerLink]="['/task/', task.key]" class="list-group-item list-group-item-action task-list-item">
+        {{ task.title }}
+      </a>
+    </div>
+
+    <div class="tasks-pagination">
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+  </div>
+</div>
+
+
+

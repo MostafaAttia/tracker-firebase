@@ -1,0 +1,28 @@
+<div>
+  <h4 class="text-center">New Task</h4>
+
+  <form #f="ngForm">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input class="form-control" #title="ngModel" [(ngModel)]="task.title" name="title" id="title" type="text" required>
+
+      <div class="alert alert-danger" *ngIf="title.touched && title.invalid">
+        <div *ngIf="title.errors.required">Title field is required.</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea class="form-control" #description="ngModel" [(ngModel)]="task.description" rows="10" name="description" id="description" required>
+
+      </textarea>
+      <div class="alert alert-danger" *ngIf="description.touched && description.invalid">
+        <div *ngIf="description.errors.required">Description field is required.</div>
+      </div>
+    </div>
+
+    <button type="button" class="btn btn-primary btn-block"
+            [disabled]="f.invalid"
+            (click)="onCreate()">Create</button>
+  </form>
+
+</div>

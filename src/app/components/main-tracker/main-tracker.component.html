@@ -1,0 +1,26 @@
+<div class="main-tracker">
+  <div class="row">
+    <div class="col-4">
+      <app-tasks></app-tasks>
+    </div>
+    <div class="col-8 text-center">
+      <h4>
+        Tracker
+      </h4>
+      <div>
+        <app-tracker (duration)="trackerPaused($event)" (resumed)="trackerResumed()"></app-tracker>
+      </div>
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-sm btn-info"
+                [routerLink]="['/new-task']"
+                [queryParams]="{ totalDuration: duration}"
+                [disabled]="!isPaused || isResumed">
+          <i class="fas fa-stopwatch"></i> Assign to task
+        </button>
+        <button type="button" class="btn btn-sm btn-info" routerLink="new-task">
+          <i class="fas fa-plus-square"></i> New Task
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

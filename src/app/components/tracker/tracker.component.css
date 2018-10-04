@@ -1,0 +1,20 @@
+@font-face {
+  font-family: 'digital-7';
+  src: url("../../../assets/fonts/digital-7/digital-7.ttf"); }
+div.clock {
+  margin: 5px 0;
+  font-family: 'digital-7', sans-serif; }
+  div.clock div {
+    display: inline-block;
+    position: relative; }
+    div.clock div p {
+      font-size: 50px;
+      position: relative;
+      z-index: 100; }
+  div.clock .colon {
+    color: #607d8b; }
+  div.clock .controls {
+    font-size: 50px;
+    margin-left: 2vw; }
+
+/*# sourceMappingURL=tracker.component.css.map */

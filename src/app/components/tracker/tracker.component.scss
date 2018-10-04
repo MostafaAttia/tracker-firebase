@@ -1,0 +1,29 @@
+$fontSize: 50px;
+
+@font-face {
+  font-family: 'digital-7';
+  src: url('../../../assets/fonts/digital-7/digital-7.ttf');
+}
+
+div.clock {
+  margin: 5px 0;
+  font-family: 'digital-7', sans-serif;
+
+  div {
+    display: inline-block;
+    position: relative;
+    p {
+      font-size: $fontSize;
+      position: relative;
+      z-index: 100;
+    }
+  }
+
+  .colon {
+    color: #607d8b;
+  }
+  .controls {
+    font-size: $fontSize;
+    margin-left: 2vw;
+  }
+}

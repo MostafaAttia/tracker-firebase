@@ -1,0 +1,20 @@
+<div class="text-center">
+
+  <app-tracker [task]="task"></app-tracker>
+
+  <div class="task-container">
+    <h1 class="display-4">{{ task.title }}</h1>
+    <hr class="my-4">
+    <p class="lead">{{ task.description }}</p>
+    <hr class="my-4">
+    <div class="row">
+      <div class="col">
+        <span class="float-left"><b>Created at:</b> {{ task.createdAt | date:'medium' }}</span>
+      </div>
+      <div class="col">
+        <span class="float-right"><b>Finished at:</b> {{ task.finishedAt | date:'medium' }}</span>
+      </div>
+    </div>
+  </div>
+
+</div>
