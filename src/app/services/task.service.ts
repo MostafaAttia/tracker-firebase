@@ -16,7 +16,7 @@ export class TaskService {
     return this.db.list('/tasks').push(task);
   }
 
-  getAll(): Observable<Task[]> {
+  getAll() {
     return this.db.list('/tasks').snapshotChanges().pipe(
       map(changes =>
         changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
