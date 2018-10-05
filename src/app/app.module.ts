@@ -15,6 +15,7 @@ import {AngularFireDatabaseModule} from 'angularfire2/database';
 import {TaskService} from './services/task.service';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { SecondsToTimePipe } from './pipes/seconds-to-time.pipe';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
     TaskComponent,
     NewTaskComponent,
     MainTrackerComponent,
-    TrackerComponent
+    TrackerComponent,
+    SecondsToTimePipe
   ],
   imports: [
     BrowserModule,

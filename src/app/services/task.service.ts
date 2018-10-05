@@ -24,12 +24,17 @@ export class TaskService {
     );
   }
 
-  get(taskId) {
-    return this.db.object('/tasks/' + taskId);
+  get(taskId):  Observable<any> {
+    return this.db.object('/tasks/' + taskId).snapshotChanges().pipe(
+      map(changes => {
+        const key = changes.payload.key;
+        return { key, ...changes.payload.val() };
+      })
+    );
   }
 
   updateTask(task: Task, duration?: number) {
-    let task$ = this.get(task.key);
+    const task$ = this.db.object('/tasks/' + task.key);
 
     task$.valueChanges().pipe(
       take(1)

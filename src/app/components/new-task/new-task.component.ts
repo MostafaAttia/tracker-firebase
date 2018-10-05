@@ -10,6 +10,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class NewTaskComponent implements OnInit {
   task: Task = {
+    key: '',
     title: '',
     description: '',
     duration: 0,
@@ -20,7 +21,7 @@ export class NewTaskComponent implements OnInit {
   constructor(private taskService: TaskService, private router: Router, private route: ActivatedRoute) { }
 
   onCreate() {
-    let newTask = this.taskService.create(this.task);
+    const newTask = this.taskService.create(this.task);
     this.router.navigate(['/task', newTask.key ]);
   }
 

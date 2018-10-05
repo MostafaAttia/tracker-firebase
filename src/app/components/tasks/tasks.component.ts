@@ -20,6 +20,8 @@ export class TasksComponent implements OnInit, OnDestroy {
       .subscribe(tasks => {
         this.tasks = this.filteredTasks = tasks;
       });
+
+
   }
 
   filterTasks(query: string) {

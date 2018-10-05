@@ -58,7 +58,7 @@ export class TrackerComponent implements OnChanges {
   }
 
   ngOnChanges() {
-    if(this.task) {
+    if (this.task) {
       this.totalSeconds = this.task.duration;
 
       const durationHours = Math.floor((this.totalSeconds / 3600));

@@ -1,4 +1,4 @@
-<div class="text-center">
+<div class="text-center" >
 
   <app-tracker [task]="task"></app-tracker>
 
@@ -10,6 +10,9 @@
     <div class="row">
       <div class="col">
         <span class="float-left"><b>Created at:</b> {{ task.createdAt | date:'medium' }}</span>
+      </div>
+      <div class="col">
+        <span class="float-left"><b>Duration:</b> {{ task.duration | secondsToTime }}</span>
       </div>
       <div class="col">
         <span class="float-right"><b>Finished at:</b> {{ task.finishedAt | date:'medium' }}</span>
