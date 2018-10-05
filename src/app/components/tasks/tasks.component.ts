@@ -12,6 +12,7 @@ export class TasksComponent implements OnInit, OnDestroy {
   tasks;
   filteredTasks;
   subscription: Subscription;
+  page;
 
   constructor(private taskService: TaskService) { }
 
@@ -20,8 +21,6 @@ export class TasksComponent implements OnInit, OnDestroy {
       .subscribe(tasks => {
         this.tasks = this.filteredTasks = tasks;
       });
-
-
   }
 
   filterTasks(query: string) {
