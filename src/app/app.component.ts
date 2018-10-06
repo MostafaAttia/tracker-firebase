@@ -8,11 +8,6 @@ import {fadeAnimation} from './fade.animation';
   animations: [ fadeAnimation ]
 })
 export class AppComponent {
-  @HostBinding( 'class.page-transitioned' ) pageAnimationFinished: boolean = false;
-
-  pageTransitioned() {
-    this.pageAnimationFinished = true;
-  }
 
   getRouterOutletState(outlet) {
     return outlet.isActivated ? outlet.activatedRoute : '';
