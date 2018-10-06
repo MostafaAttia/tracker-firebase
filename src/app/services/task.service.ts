@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
 import {Task} from '../models/task';
-import {map, take} from 'rxjs/operators';
+import {map} from 'rxjs/operators';
 import {Observable} from 'rxjs';
 
 @Injectable({
@@ -12,7 +12,6 @@ export class TaskService {
   constructor(private db: AngularFireDatabase) { }
 
   create(task: Task) {
-    task.createdAt = Date.now();
     return this.db.list('/tasks').push(task);
   }
 
@@ -33,21 +32,14 @@ export class TaskService {
     );
   }
 
-  updateTask(task: Task, duration?: number) {
+  update(task: Task) {
     const task$ = this.db.object('/tasks/' + task.key);
+    delete task.key;
+    task$.update(task);
+  }
 
-    task$.valueChanges().pipe(
-      take(1)
-    ).subscribe(item => {
-      task$.update({
-        title: task.title,
-        description: task.description,
-        duration: duration ? duration : task.duration,
-        createdAt: task.createdAt,
-        finishedAt: Date.now()
-      });
-
-    });
+  delete(taskId) {
+    return this.db.object('/tasks/' + taskId).remove();
   }
 
 }

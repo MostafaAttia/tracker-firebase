@@ -21,12 +21,16 @@ export class NewTaskComponent implements OnInit {
   constructor(private taskService: TaskService, private router: Router, private route: ActivatedRoute) { }
 
   onCreate() {
-    const newTask = this.taskService.create(this.task);
+    delete this.task.key;
+    this.task.createdAt = Date.now();
+    let newTask = this.taskService.create(this.task);
     this.router.navigate(['/task', newTask.key ]);
   }
 
   ngOnInit() {
-    this.task.duration = Number(this.route.snapshot.queryParamMap.get('totalDuration'));
+    this.task.duration = this.route.snapshot.queryParamMap.has('totalDuration')
+      ?  Number(this.route.snapshot.queryParamMap.get('totalDuration'))
+      : 0;
   }
 
 }

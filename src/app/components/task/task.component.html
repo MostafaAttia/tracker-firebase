@@ -1,7 +1,9 @@
 <div class="text-center" >
 
   <app-tracker [task]="task"></app-tracker>
-
+  <div class="float-right">
+    <button (click)="onDelete()" class="btn btn-sm btn-light" >Delete</button>
+  </div>
   <div class="task-container">
     <h1 class="display-4">{{ task.title }}</h1>
     <hr class="my-4">
@@ -11,10 +13,10 @@
       <div class="col">
         <span class="float-left"><b>Created at:</b> {{ task.createdAt | date:'medium' }}</span>
       </div>
-      <div class="col">
+      <div class="col" *ngIf="task.duration">
         <span class="float-left"><b>Duration:</b> {{ task.duration | secondsToTime }}</span>
       </div>
-      <div class="col">
+      <div class="col" *ngIf="task.finishedAt">
         <span class="float-right"><b>Finished at:</b> {{ task.finishedAt | date:'medium' }}</span>
       </div>
     </div>

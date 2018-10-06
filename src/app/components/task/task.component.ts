@@ -1,6 +1,6 @@
 import {Component, OnChanges, OnInit} from '@angular/core';
 import {TaskService} from '../../services/task.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Task} from '../../models/task';
 
 @Component({
@@ -19,7 +19,7 @@ export class TaskComponent implements OnInit, OnChanges {
   };
   id: string;
 
-  constructor(private taskService: TaskService, private route: ActivatedRoute) {}
+  constructor(private taskService: TaskService, private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
@@ -32,4 +32,9 @@ export class TaskComponent implements OnInit, OnChanges {
   ngOnChanges() {
   }
 
+  onDelete() {
+    if(! confirm('Are you sure you want to delete this task?')) return;
+    this.taskService.delete(this.id);
+    this.router.navigate(['/tasks']);
+  }
 }

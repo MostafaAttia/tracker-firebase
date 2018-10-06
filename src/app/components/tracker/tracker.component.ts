@@ -44,7 +44,9 @@ export class TrackerComponent implements OnChanges {
     delete this.interval;
 
     if(this.task) {
-      this.taskService.updateTask(this.task, this.totalSeconds);
+      this.task.duration = this.totalSeconds;
+      this.task.finishedAt = Date.now();
+      this.taskService.update(this.task);
     }
 
     this.duration.emit(this.totalSeconds);
